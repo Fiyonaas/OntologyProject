@@ -1,0 +1,1392 @@
+<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Ontologi Pakaian Adat Indonesia
+    // Disusun oleh:
+    // - Fiyona Anmila Syamsir
+    // - Dwi Marcello Harryadhi Suputra 
+    // - Sabila Amanda Putri Riyadi
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://budayakb.cs.ui.ac.id/ns#"
+     xml:base="https://budayakb.cs.ui.ac.id/ns"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:bkb="https://budayakb.cs.ui.ac.id/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bkbr="https://budayakb.cs.ui.ac.id/resource/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://budayakb.cs.ui.ac.id/ns">
+        <owl:versionIRI rdf:resource="https://budayakb.cs.ui.ac.id/ns/1.0.0"/>
+        <terms:title xml:lang="id">Ontologi Pakaian Adat di Indonesia</terms:title>
+        <rdfs:comment xml:lang="id">Ontologi pakaian adat di Indonesia. Pakaian adat dan tempat asalnya ditampilkan menggunakan data versi tahun 2022 sehingga terdapat penambahan provinsi baru dalam daftar provinsi di Indonesia. Ontologi ini dibentuk untuk memenuhi tugas besar mata kuliah Representasi Pengetahuan.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#originFromCity -->
+
+    <owl:ObjectProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#originFromCity">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa pakaian adat tersebut berasal dari kota atau kabupaten tujuan (range).</rdfs:comment>
+        <rdfs:label xml:lang="id">dariKabupatenKota</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#originFromProvince -->
+
+    <owl:ObjectProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#originFromProvince">
+        <owl:equivalentProperty rdf:resource="https://budayakb.cs.ui.ac.id/ns#province"/>
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa pakaian adat tersebut berasal dari provinsi tujuan (range).</rdfs:comment>
+        <rdfs:label xml:lang="id">dariProvinsi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#province -->
+
+    <owl:ObjectProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#province">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+        <rdfs:range rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa subjek atau domain berasal dari provinsi tujuan atau range.</rdfs:comment>
+        <rdfs:label xml:lang="id">provinsi</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#bahanPakaian -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#bahanPakaian">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Menunjukkan pakaian acuan terbuat dari bahan tertentu.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#jenisPakaian -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#jenisPakaian">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="id">menunjukkan jenis pakaian adat tersebut digunakan untuk acara atau tujuan tertentu.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#label -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#label">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#WarisanBudaya"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Pemberian label atau nama dari suatu individu di ontologi ini.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#pakaianAtasan -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#pakaianAtasan">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa pakaian adat acuan merupakan pakaian atasan.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#pakaianBawahan -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#pakaianBawahan">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa pakaian adat acuan merupakan pakaian bawahan.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#ukuranPakaian -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#ukuranPakaian">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="id">menunjukkan panjang atau pendek ukuran lengan suatu pakaian adat Indonesia.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#warna -->
+
+    <owl:DatatypeProperty rdf:about="https://budayakb.cs.ui.ac.id/ns#warna">
+        <rdfs:domain rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="id">menunjukkan warna yang umumnya digunakan pada pakaian adat acuan.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#KabupatenKota -->
+
+    <owl:Class rdf:about="https://budayakb.cs.ui.ac.id/ns#KabupatenKota">
+        <rdfs:comment xml:lang="id">menunjukkan kabupaten atau kota yang merupakan tempat asal dari suatu pakaian adat di Indonesia.</rdfs:comment>
+        <rdfs:label xml:lang="id">KabupatenKota</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#PakaianTradisional -->
+
+    <owl:Class rdf:about="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional">
+        <rdfs:subClassOf rdf:resource="https://budayakb.cs.ui.ac.id/ns#WarisanBudayaBergerak"/>
+        <rdfs:comment xml:lang="id">Ontologi ini membahas pakaian adat Indonesia versi tahun 2022 yang terdiri dari 38 provinsi.</rdfs:comment>
+        <rdfs:comment xml:lang="id">Pakaian tradisional atau pakaian adat merupakan pakaian yang menjadi ciri khas dan identitas suatu daerah. Pada ontologi ini, pakaian adat yang dibahas hanya seputar pakaian adat yang terdapat di Indonesia. Saat ini, provinsi di Indonesia terdiri dari 38 provinsi yang menjadi tempat asal pakaian adat ontologi ini.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#Provinsi -->
+
+    <owl:Class rdf:about="https://budayakb.cs.ui.ac.id/ns#Provinsi">
+        <rdfs:comment xml:lang="id">menunjukkan provinsi yang merupakan tempat asal dari suatu pakaian adat di Indonesia.</rdfs:comment>
+        <rdfs:label xml:lang="id">Provinsi</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#WarisanBudaya -->
+
+    <owl:Class rdf:about="https://budayakb.cs.ui.ac.id/ns#WarisanBudaya">
+        <rdfs:comment xml:lang="id">menunjukkan bahwa ontologi ini membahas topik mengenai warisan budaya asal Indonesia.</rdfs:comment>
+        <rdfs:label xml:lang="id">WarisanBudaya</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#WarisanBudayaBenda -->
+
+    <owl:Class rdf:about="https://budayakb.cs.ui.ac.id/ns#WarisanBudayaBenda">
+        <rdfs:subClassOf rdf:resource="https://budayakb.cs.ui.ac.id/ns#WarisanBudaya"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa batasan warisan budaya dalam ontologi ini merupakan warisan budaya dalam bentuk benda sehingga terdapat wujud asli yang dapat dilihat dan diamati secara langsung.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/ns#WarisanBudayaBergerak -->
+
+    <owl:Class rdf:about="https://budayakb.cs.ui.ac.id/ns#WarisanBudayaBergerak">
+        <rdfs:subClassOf rdf:resource="https://budayakb.cs.ui.ac.id/ns#WarisanBudayaBenda"/>
+        <rdfs:comment xml:lang="id">menunjukkan bahwa warisan budaya benda dalam ontologi ini dibatasi berdasarkan warisan budaya yang dapat berpindah tempat (bergerak). Contoh warisan budaya bergerak, yaitu pakaian adat, senjata tradisional, makanan tradisional, alat musik tradisional, dan patung peninggalan.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Aceh -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Aceh">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Aesan_Gede -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Aesan_Gede">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sumatra_Selatan"/>
+        <bahanPakaian xml:lang="id">Songket lepus</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk upacara pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Atela -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Atela">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kota_Surakarta"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Tengah"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk menghadiri upacara besar</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">putih, hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Babaju_Kun_Galung_Pacinan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Babaju_Kun_Galung_Pacinan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Selatan"/>
+        <bahanPakaian xml:lang="id">Sutra</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan (pengantin)</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Baju_Bodo -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Baju_Bodo">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Selatan"/>
+        <bahanPakaian xml:lang="id">Sutra</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat dan pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, jingga</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Baju_Cele -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Baju_Cele">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Maluku"/>
+        <bahanPakaian xml:lang="id">Brokat</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk upacara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Baju_Kurung_Tanggung -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Baju_Kurung_Tanggung">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jambi"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Baju_Nggembe -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Baju_Nggembe">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Tengah"/>
+        <bahanPakaian xml:lang="id">Kain satin</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Baju_Pangsi -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Baju_Pangsi">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Banten"/>
+        <bahanPakaian xml:lang="id">Katun</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk aktivitas sehari-hari, latihan silat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Baju_Tating -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Baju_Tating">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Sekadau"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Barat"/>
+        <bahanPakaian xml:lang="id">Kain tenun</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, indigo</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Bali -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Bali">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Banten -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Banten">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Bengkulu -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Bengkulu">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Beskap -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Beskap">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kota_Surakarta"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Tengah"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara resmi atau penting</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, putih</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Biliu -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Biliu">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kota_Gorontalo"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Gorontalo"/>
+        <bahanPakaian xml:lang="id">Kapas</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk upacara adat pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning, merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Bundo_Kanduang -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Bundo_Kanduang">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sumatra_Barat"/>
+        <bahanPakaian xml:lang="id">Kain balapak tenunan</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat dan digunakan oleh wanita yang telah menikah</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, biru, merah, lembayung</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/DI_Yogyakarta -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/DI_Yogyakarta">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/DKI_Jakarta -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/DKI_Jakarta">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Gorontalo -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Gorontalo">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Holim -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Holim">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <owl:sameAs rdf:resource="https://budayakb.cs.ui.ac.id/resource/Koteka"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua_Pegunungan"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua_Tengah"/>
+        <bahanPakaian xml:lang="id">Kulit labu cina</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk menutup tubuh bagian bawah laki-laki saat mereka melakukan aktivitas sehari-hari dan acara adat.</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">holim pendek, holim panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning kemerah-merahan</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Jambi -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Jambi">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Jawa_Barat -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Jawa_Barat">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Jawa_Tengah -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Jawa_Tengah">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Jawa_Timur -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Jawa_Timur">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kabasaran -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kabasaran">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kota_Tomohon"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Utara"/>
+        <bahanPakaian xml:lang="id">Kain tenun Patola</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kabupaten_Lombok_Tengah -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Lombok_Tengah">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kabupaten_Ogan_Komering_Ilir -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Ogan_Komering_Ilir">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kabupaten_Sekadau -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Sekadau">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kalimantan_Barat -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Barat">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kalimantan_Selatan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Selatan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kalimantan_Tengah -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Tengah">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kalimantan_Timur -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Timur">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kalimantan_Utara -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Utara">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kebaya_Jawa -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Jawa">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Tengah"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk upacara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam</ukuranPakaian>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kebaya_Ksatrian -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Ksatrian">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/DI_Yogyakarta"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang, lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, cokelat</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kebaya_Laboh -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Laboh">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kepulauan_Riau"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Riau"/>
+        <bahanPakaian xml:lang="id">Sutra</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk upacara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, kuning, hijau</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kebaya_Sunda -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Sunda">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Barat"/>
+        <bahanPakaian xml:lang="id">Brokat</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, putih</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kebaya_Tojang -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Tojang">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Ogan_Komering_Ilir"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sumatra_Selatan"/>
+        <bahanPakaian xml:lang="id">Kain satin</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk menghadiri undangan kehormatan, kedaulangan, dan pernikahan.</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kepulauan_Bangka_Belitung -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kepulauan_Bangka_Belitung">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kepulauan_Riau -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kepulauan_Riau">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kinawo -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kinawo">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Tenggara"/>
+        <bahanPakaian xml:lang="id">Kulit kayu Usongi</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek, lengan panjang</ukuranPakaian>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, kuning</ukuranPakaian>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/King_Baba -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/King_Baba">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Barat"/>
+        <bahanPakaian xml:lang="id">Kulit kayu kapuo</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, jingga</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kota_Gorontalo -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kota_Gorontalo">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kota_Surakarta -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kota_Surakarta">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Kota_Tomohon -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Kota_Tomohon">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#KabupatenKota"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Koteka -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Koteka">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua_Pegunungan"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua_Tengah"/>
+        <bahanPakaian xml:lang="id">Kulit labu cina</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk kegiatan sehari-hari dan acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">koteka pendek, koteka panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning kemerah-merahan</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Laku_Tepu -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Laku_Tepu">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Utara"/>
+        <bahanPakaian xml:lang="id">Serat kofo</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning, jingga, hijau</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Lampung -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Lampung">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Makuta -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Makuta">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kota_Gorontalo"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Gorontalo"/>
+        <bahanPakaian xml:lang="id">Kain satin</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Maluku -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Maluku">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Maluku_Utara -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Maluku_Utara">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Manteren_Lamo -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Manteren_Lamo">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Maluku_Utara"/>
+        <bahanPakaian xml:lang="id">Kain satin</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Menak -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Menak">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Barat"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian xml:lang="id">untuk menunjukkan status sosial atau keturunan darah biru (bangsawan)</jenisPakaian>
+        <pakaianAtasan xml:lang="id">ya</pakaianAtasan>
+        <pakaianBawahan xml:lang="id">ya</pakaianBawahan>
+        <ukuranPakaian xml:lang="id">lengan panjang</ukuranPakaian>
+        <warna xml:lang="id">hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Nusa_Tenggara_Barat -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Nusa_Tenggara_Barat">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Nusa_Tenggara_Timur -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Nusa_Tenggara_Timur">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Ewer -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Ewer">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua_Barat"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Papua_Barat_Daya"/>
+        <bahanPakaian xml:lang="id">Jerami</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kuning kecokelatan</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Kustin -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Kustin">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Timur"/>
+        <bahanPakaian xml:lang="id">Beledu</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Lambung -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Lambung">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Lombok_Tengah"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Nusa_Tenggara_Barat"/>
+        <bahanPakaian xml:lang="id">Kain pelung</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Payas_Agung -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pakaian_Adat_Payas_Agung">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Bali"/>
+        <bahanPakaian xml:lang="id">Kamen songket</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></warna>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pakaian_Suku_Sabu -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pakaian_Suku_Sabu">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Nusa_Tenggara_Timur"/>
+        <bahanPakaian xml:lang="id">Kain tenun</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Paksian -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Paksian">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kepulauan_Bangka_Belitung"/>
+        <bahanPakaian xml:lang="id">Sutra</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Papua -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Papua_Barat -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Barat">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Papua_Barat_Daya -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Barat_Daya">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Papua_Pegunungan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Pegunungan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Papua_Selatan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Selatan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Papua_Tengah -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Tengah">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pattuqduq_Towaine -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pattuqduq_Towaine">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Barat"/>
+        <bahanPakaian xml:lang="id">Sutra</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, merah, hijau</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Pesa_an -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Pesa_an">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Timur"/>
+        <bahanPakaian xml:lang="id">Tetoron</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, hijau, hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Rejang_Lebong -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Rejang_Lebong">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Bengkulu"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Riau -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Riau">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sadariah -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sadariah">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/DKI_Jakarta"/>
+        <bahanPakaian xml:lang="id">Katun</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk aktivitas sehari-hari</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">putih</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sangkarut -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sangkarut">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Tengah"/>
+        <bahanPakaian xml:lang="id">Serat nyamu</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, hitam, putih</pakaianBawahan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sapei_Sapaq -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sapei_Sapaq">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kalimantan_Utara"/>
+        <bahanPakaian xml:lang="id">Beludru</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sarung_Sungkitan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sarung_Sungkitan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kabupaten_Ogan_Komering_Ilir"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sumatra_Selatan"/>
+        <bahanPakaian xml:lang="id">Kain tenun</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kain panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sikepan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sikepan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromCity rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kota_Surakarta"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Jawa_Tengah"/>
+        <bahanPakaian xml:lang="id">Kain tessa</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat, pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, putih</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sulawesi_Barat -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Barat">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sulawesi_Selatan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Selatan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sulawesi_Tengah -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Tengah">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sulawesi_Tenggara -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Tenggara">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sulawesi_Utara -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sulawesi_Utara">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sumatra_Barat -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sumatra_Barat">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sumatra_Selatan -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sumatra_Selatan">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Sumatra_Utara -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Sumatra_Utara">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#Provinsi"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Teluk_Belanga -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Teluk_Belanga">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Kepulauan_Riau"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Riau"/>
+        <bahanPakaian xml:lang="id">Kain satin</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hijau, kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Tulang_Bawang -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Tulang_Bawang">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Lampung"/>
+        <bahanPakaian xml:lang="id">Brokat</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan pendek, lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">putih, merah</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Ulee_Balang -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Ulee_Balang">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Aceh"/>
+        <bahanPakaian xml:lang="id">Sutra</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk pernikahan</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lengan panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hitam, kuning</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://budayakb.cs.ui.ac.id/resource/Ulos -->
+
+    <owl:NamedIndividual rdf:about="https://budayakb.cs.ui.ac.id/resource/Ulos">
+        <rdf:type rdf:resource="https://budayakb.cs.ui.ac.id/ns#PakaianTradisional"/>
+        <originFromProvince rdf:resource="https://budayakb.cs.ui.ac.id/resource/Sumatra_Utara"/>
+        <bahanPakaian xml:lang="id">Benang kapas</bahanPakaian>
+        <jenisPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">untuk acara adat</jenisPakaian>
+        <pakaianAtasan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ya</pakaianAtasan>
+        <pakaianBawahan rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tidak</pakaianBawahan>
+        <ukuranPakaian rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kain panjang</ukuranPakaian>
+        <warna rdf:datatype="http://www.w3.org/2001/XMLSchema#string">merah, hitam</warna>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Biliu"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Makuta"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Jawa"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Ksatrian"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Jawa"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Laboh"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Jawa"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Sunda"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Ksatrian"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Laboh"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Ksatrian"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Sunda"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Laboh"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kebaya_Sunda"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Kepulauan_Riau"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Riau"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Barat"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Barat_Daya"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Pegunungan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Selatan"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua"/>
+            <rdf:Description rdf:about="https://budayakb.cs.ui.ac.id/resource/Papua_Tengah"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
