@@ -1,4 +1,4 @@
-# OntologyProject
+# Ontology Project
 Welcome to the OntologyProject!
 
 This repository contains ontology engineering such as OWL file that related to ontology in knowledge representation.
